@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARP-RDM3DC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .status {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .info {
+            background-color: #e2e3e5;
+            border: 1px solid #d6d8db;
+            color: #383d41;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .url {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ARP-RDM3DC Project</h1>
+        
+        <div class="status">
+            <strong>✅ Website Status: LIVE</strong>
+        </div>
+        
+        <div class="info">
+            <h3>Public URL:</h3>
+            <div class="url" id="publicUrl">https://rdm3dc.github.io/ARP-RDM3DC/</div>
+        </div>
+        
+        <div class="info">
+            <h3>Repository Information:</h3>
+            <p><strong>Repository:</strong> RDM3DC/ARP-RDM3DC</p>
+            <p><strong>Deployed via:</strong> GitHub Pages</p>
+            <p><strong>Last Updated:</strong> <span id="lastUpdated"></span></p>
+        </div>
+        
+        <div class="info">
+            <h3>Project Description:</h3>
+            <p>This is the live website for the ARP-RDM3DC project. The site is automatically deployed using GitHub Pages whenever changes are pushed to the main branch.</p>
+        </div>
+    </div>
+
+    <script>
+        // Set the current date/time
+        document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+        
+        // Update the URL with the current page URL
+        const currentUrl = window.location.href;
+        document.getElementById('publicUrl').textContent = currentUrl;
+    </script>
+</body>
+</html>
