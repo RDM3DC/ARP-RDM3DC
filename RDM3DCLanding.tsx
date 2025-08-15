@@ -421,7 +421,7 @@ export default function RDM3DCLanding() {
               <p className="mt-2 text-slate-300">Consulting, partnerships, or R&D collabs. Tell us what you’re trying to unlock.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild className="rounded-2xl">
-                  <a href="mailto:hello@rdm3dc.com"><Mail className="mr-2 h-4 w-4"/> hello@rdm3dc.com</a>
+                  <a href="mailto:hello@rdm3dc.com"><Mail className="mr-2 h-4 w-4"/> ryanmckenna26@gmail.com</a>
                 </Button>
                 <Button asChild variant="secondary" className="rounded-2xl">
                   <a href="https://github.com/RDM3DC" target="_blank" rel="noreferrer"><Github className="mr-2 h-4 w-4"/> GitHub</a>
@@ -447,7 +447,7 @@ export default function RDM3DCLanding() {
           <div>© {new Date().getFullYear()} RDM3DC. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <a className="hover:text-white" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer"><Github className="inline h-4 w-4 mr-1"/> GitHub</a>
-            <a className="hover:text-white" href="mailto:hello@rdm3dc.com"><Mail className="inline h-4 w-4 mr-1"/> Email</a>
+            <a className="hover:text-white" href="mailto:ryanmckenna26@gmail.com"><Mail className="inline h-4 w-4 mr-1"/> Email</a>
           </div>
         </div>
       </footer>
