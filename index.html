@@ -3,84 +3,814 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARP-RDM3DC</title>
+    <title>RDM3DC - Building Adaptive Systems</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            color: #f1f5f9;
+            background: linear-gradient(to bottom, #020617 0%, #0f172a 50%, #020617 100%);
+            min-height: 100vh;
         }
+        
         .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-        h1 {
-            color: #333;
+        
+        .gradient-text {
+            background: linear-gradient(to right, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline;
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 40%, rgba(79, 70, 229, 0.6) 0%, rgba(6, 182, 212, 0.6) 35%, rgba(16, 185, 129, 0.6) 70%, transparent 100%);
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            background-color: rgba(255, 255, 255, 0.07) !important;
+        }
+        
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            background: rgba(2, 6, 23, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            height: 2rem;
+            width: 2rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #10b981 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(6, 182, 212, 0.2);
+        }
+        
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        nav {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #cbd5e1;
+        }
+        
+        @media (min-width: 768px) {
+            nav { display: flex; }
+        }
+        
+        nav a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: white;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+        
+        .btn-primary:hover {
+            background: #e2e8f0;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: #cbd5e1;
+        }
+        
+        .btn-ghost:hover {
+            color: white;
+        }
+        
+        .btn-lg {
+            padding: 0.75rem 2rem;
+            height: 2.75rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .hero-gradient-blur {
+            position: absolute;
+            top: -6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 36rem;
+            width: 36rem;
+            border-radius: 50%;
+            filter: blur(3rem);
+        }
+        
+        .hero-content {
             text-align: center;
+            padding: 5rem 0;
         }
-        .status {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+        
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 7rem 0;
+            }
         }
-        .info {
-            background-color: #e2e3e5;
-            border: 1px solid #d6d8db;
-            color: #383d41;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+        
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
         }
-        .url {
-            font-family: monospace;
-            background-color: #f8f9fa;
-            padding: 10px;
-            border-radius: 3px;
-            border: 1px solid #dee2e6;
+        
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+        }
+        
+        .hero p {
+            color: #cbd5e1;
+            max-width: 42rem;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 1.875rem;
+            }
+        }
+        
+        .section-subtitle {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 42rem;
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .grid-4 {
+            grid-template-columns: 1fr;
+        }
+        
+        @media (min-width: 640px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .grid-3 {
+            grid-template-columns: 1fr;
+        }
+        
+        @media (min-width: 640px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .grid-lg-3 {
+            grid-template-columns: 1fr;
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-lg-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Cards */
+        .card {
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon {
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .card p {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: rgba(6, 182, 212, 0.8);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Projects section */
+        .projects-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .github-link {
+            font-size: 0.875rem;
+            color: #67e8f9;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .github-link:hover {
+            color: white;
+        }
+        
+        /* Contact section */
+        .contact-card {
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2rem 2.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            outline: none;
+            color: white;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        
+        .form-input::placeholder {
+            color: #94a3b8;
+        }
+        
+        .form-input:focus {
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+        }
+        
+        textarea.form-input {
+            resize: none;
+            min-height: 5rem;
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 2.5rem 0;
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+            }
+        }
+        
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-links a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Icons */
+        .icon {
+            width: 1rem;
+            height: 1rem;
+            fill: currentColor;
+        }
+        
+        .icon-sm {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        .icon-md {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        
+        /* Responsive utilities */
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ARP-RDM3DC Project</h1>
-        
-        <div class="status">
-            <strong>✅ Website Status: LIVE</strong>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                        </svg>
+                    </div>
+                    <span class="logo-text">RDM3DC</span>
+                </div>
+                <nav>
+                    <a href="#divisions">Divisions</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#why">Why Us</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div>
+                    <a href="#contact" class="btn btn-primary">Work with us</a>
+                </div>
+            </div>
         </div>
-        
-        <div class="info">
-            <h3>Public URL:</h3>
-            <div class="url" id="publicUrl">https://rdm3dc.github.io/ARP-RDM3DC/</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient-blur hero-gradient"></div>
         </div>
-        
-        <div class="info">
-            <h3>Repository Information:</h3>
-            <p><strong>Repository:</strong> RDM3DC/ARP-RDM3DC</p>
-            <p><strong>Deployed via:</strong> GitHub Pages</p>
-            <p><strong>Last Updated:</strong> <span id="lastUpdated"></span></p>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">
+                    Building <span class="gradient-text">Adaptive</span> Systems that Learn, Align & Ship
+                </h1>
+                <p class="fade-in fade-in-delay-1">
+                    From ARP and RealignR to ER‑fluid prototypes and production‑ready apps — RDM3DC is the parent company unifying research, engineering, and product.
+                </p>
+                <div class="hero-buttons fade-in fade-in-delay-2">
+                    <a href="#projects" class="btn btn-primary btn-lg">
+                        Explore projects
+                        <svg class="icon" style="margin-left: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-lg">Partner with us</a>
+                </div>
+            </div>
         </div>
-        
-        <div class="info">
-            <h3>Project Description:</h3>
-            <p>This is the live website for the ARP-RDM3DC project. The site is automatically deployed using GitHub Pages whenever changes are pushed to the main branch.</p>
+    </section>
+
+    <!-- Divisions -->
+    <section id="divisions">
+        <div class="container">
+            <h2>Divisions</h2>
+            <p class="section-subtitle">Organized to stay fast: research in Labs, product in Prototyping, experiments in Games, and customer apps in Apps.</p>
+            <div class="grid grid-4">
+                <div class="card hover-lift card-hover">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5z"></path>
+                            </svg>
+                        </div>
+                        <h3>RDM3DC Labs</h3>
+                    </div>
+                    <p>ARP, RealignR, adaptive geometry — core research, papers, and open repos.</p>
+                </div>
+                
+                <div class="card hover-lift card-hover">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 9h.01M15 9h.01M9 15h.01M15 15h.01"></path>
+                            </svg>
+                        </div>
+                        <h3>Prototyping</h3>
+                    </div>
+                    <p>CAD, 3D printing, ER-fluid devices, robotics, and rapid product development.</p>
+                </div>
+                
+                <div class="card hover-lift card-hover">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3>Games & Blockchain</h3>
+                    </div>
+                    <p>PVGL, science NFT mechanics, verifiable idea tournaments.</p>
+                </div>
+                
+                <div class="card hover-lift card-hover">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Apps</h3>
+                    </div>
+                    <p>Ice Cream Truck, Monster Scanner, and realtime geo-aware tools.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <div class="projects-header">
+                <h2>Featured Projects</h2>
+                <a class="github-link" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    All GitHub
+                </a>
+            </div>
+            <div class="grid grid-3">
+                <div class="card hover-lift card-hover project-card">
+                    <div class="project-tag">Research</div>
+                    <h3>Adaptive Resistance Principle (ARP)</h3>
+                    <p>A dynamic systems law used for optimization, analog computing, and ML stability.</p>
+                    <a href="https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-" target="_blank" rel="noreferrer" class="btn btn-secondary">View repo</a>
+                </div>
+                
+                <div class="card hover-lift card-hover project-card">
+                    <div class="project-tag">Optimizer</div>
+                    <h3>RealignR</h3>
+                    <p>A lifelong optimizer with slope-aware memory and ARP integration.</p>
+                    <a href="#" class="btn btn-secondary">See docs</a>
+                </div>
+                
+                <div class="card hover-lift card-hover project-card">
+                    <div class="project-tag">CAD</div>
+                    <h3>AdaptiveCAD</h3>
+                    <p>Geometry that bends with constraints — πₐ, curve memory, and plugins.</p>
+                    <a href="https://github.com/RDM3DC/AdaptiveCAD" target="_blank" rel="noreferrer" class="btn btn-secondary">Explore</a>
+                </div>
+                
+                <div class="card hover-lift card-hover project-card">
+                    <div class="project-tag">Apps</div>
+                    <h3>Monster Scanner</h3>
+                    <p>Kid‑friendly room scanner that ends with an "all clear".</p>
+                    <a href="#" class="btn btn-secondary">Preview</a>
+                </div>
+                
+                <div class="card hover-lift card-hover project-card">
+                    <div class="project-tag">Web3</div>
+                    <h3>PVGL League</h3>
+                    <p>Autonomous e-sports league with smart‑contract entry and payouts.</p>
+                    <a href="#" class="btn btn-secondary">Roadmap</a>
+                </div>
+                
+                <div class="card hover-lift card-hover project-card">
+                    <div class="project-tag">Civic</div>
+                    <h3>Ice Cream Truck App</h3>
+                    <p>Real‑time driver ↔ customer routing with Firebase + Maps.</p>
+                    <a href="#" class="btn btn-secondary">Prototype</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why">
+        <div class="container">
+            <div class="grid grid-lg-3">
+                <div class="card hover-lift">
+                    <div class="card-header">
+                        <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                        <h3>Research → Product</h3>
+                    </div>
+                    <p>We bridge frontier math/physics with shipped tools. If it can be simulated, we can prototype it.</p>
+                </div>
+                
+                <div class="card hover-lift">
+                    <div class="card-header">
+                        <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <h3>Open‑core, IP‑aware</h3>
+                    </div>
+                    <p>Public repos where it helps adoption; protected IP where it matters for a moat.</p>
+                </div>
+                
+                <div class="card hover-lift">
+                    <div class="card-header">
+                        <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5z"></path>
+                        </svg>
+                        <h3>Fast Experiments</h3>
+                    </div>
+                    <p>Tight iteration loops: sim → prototype → field test. We ship proof fast and scale what works.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-grid">
+                    <div>
+                        <h3>Let's build something adaptive.</h3>
+                        <p>Consulting, partnerships, or R&D collabs. Tell us what you're trying to unlock.</p>
+                        <div class="contact-buttons">
+                            <a href="mailto:hello@rdm3dc.com" class="btn btn-primary">
+                                <svg class="icon" style="margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                hello@rdm3dc.com
+                            </a>
+                            <a href="https://github.com/RDM3DC" target="_blank" rel="noreferrer" class="btn btn-secondary">
+                                <svg class="icon" style="margin-right: 0.5rem;" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="https://x.com/" target="_blank" rel="noreferrer" class="btn btn-ghost">
+                                <svg class="icon" style="margin-right: 0.5rem;" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                                Follow on X
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <input class="form-input" placeholder="Your name" />
+                        <input class="form-input" placeholder="Email" />
+                        <textarea class="form-input" placeholder="What would you like to build?"></textarea>
+                        <button class="btn btn-primary btn-full">Send message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>© <span id="current-year"></span> RDM3DC. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">
+                        <svg class="icon-sm" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:hello@rdm3dc.com">
+                        <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Set the current date/time
-        document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Update the URL with the current page URL
-        const currentUrl = window.location.href;
-        document.getElementById('publicUrl').textContent = currentUrl;
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger animations on page load
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                element.style.animationPlayState = 'running';
+            });
+        });
     </script>
 </body>
 </html>
