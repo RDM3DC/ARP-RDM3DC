@@ -49,7 +49,7 @@ const projects = [
     title: "RealignR",
     copy: "A lifelong optimizer with slope-aware memory and ARP integration.",
     cta: "See docs",
-    href: "#",
+    href: "https://github.com/RDM3DC/realignerpreview",
   },
   {
     tag: "CAD",
