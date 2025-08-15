@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, FlaskConical, Cpu, AppWindow, ShieldCheck, Github, Mail, Twitter, Boxes, Sparkles } from "lucide-react";
+import { ArrowRight, FlaskConical, Cpu, AppWindow, ShieldCheck, Github, Mail, Twitter, Boxes, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -88,9 +88,7 @@ export default function RDM3DCLanding() {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 border-b border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-indigo-500 via-cyan-400 to-emerald-400 grid place-items-center shadow-lg shadow-cyan-500/20">
-              <Sparkles className="h-4 w-4" />
-            </div>
+            <img src="/assets/rdm3dc-logo.jpg" alt="RDM3DC logo" className="h-8 w-8 rounded-xl" />
             <span className="font-semibold tracking-tight">RDM3DC</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
@@ -425,6 +423,9 @@ export default function RDM3DCLanding() {
                 </Button>
                 <Button asChild variant="secondary" className="rounded-2xl">
                   <a href="https://github.com/RDM3DC" target="_blank" rel="noreferrer"><Github className="mr-2 h-4 w-4"/> GitHub</a>
+                </Button>
+                <Button asChild variant="secondary" className="rounded-2xl">
+                  <a href="sms:9513920096"><Phone className="mr-2 h-4 w-4"/>951‑392‑0096</a>
                 </Button>
                 <Button asChild variant="ghost" className="rounded-2xl text-slate-300 hover:text-white">
                   <a href="https://x.com/" target="_blank" rel="noreferrer"><Twitter className="mr-2 h-4 w-4"/> Follow on X</a>
