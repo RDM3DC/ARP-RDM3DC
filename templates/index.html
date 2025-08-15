@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Home - ARP-RDM3DC{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to ARP-RDM3DC</h1>
+        <p class="hero-subtitle">Your gateway to advanced research and development</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('about') }}" class="btn btn-primary">Learn More</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get Started</a>
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container">
+        <h2>Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Innovation</h3>
+                <p>Cutting-edge research and development solutions for modern challenges.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Collaboration</h3>
+                <p>Work together with researchers and developers from around the world.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Excellence</h3>
+                <p>Commitment to quality and excellence in all our projects and initiatives.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
