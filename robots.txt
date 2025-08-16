@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://rdm3dc.github.io/ARP-RDM3DC/sitemap.xml
