@@ -99,7 +99,7 @@ export default function RDM3DCLanding() {
           </nav>
           <div className="flex items-center gap-2">
             <Button asChild size="sm" className="rounded-2xl">
-              <a href="#contact">Work with us</a>
+              <a href="#contact">RDM3DC</a>
             </Button>
           </div>
         </div>
