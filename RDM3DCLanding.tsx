@@ -88,7 +88,7 @@ export default function RDM3DCLanding() {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 border-b border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/assets/rdm3dc-logo.svg" alt="RDM3DC logo" className="h-8 w-8 rounded-xl" />
+            <img src="/assets/channels4_profile.jpg" alt="RDM3DC logo" className="h-8 w-8 rounded-xl" />
             <span className="font-semibold tracking-tight">RDM3DC</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
