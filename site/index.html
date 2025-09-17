@@ -132,35 +132,24 @@
 
   <main class="relative z-10">
     <section class="max-w-6xl mx-auto px-6 pb-16">
-      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-        <div class="video-frame" id="video">
-          <video controls playsinline preload="metadata" poster="assets/hero_poster.jpg">
-            <source src="assets/hero.mp4" type="video/mp4" />
-            <div class="video-fallback">
-              <div>
-                <p class="font-semibold text-slate-100 mb-1">Drop your hero.mp4</p>
-                <p>Place the Kickstarter teaser at <code>site/assets/hero.mp4</code> to autoplay above the fold.</p>
-              </div>
-            </div>
-          </video>
-        </div>
-        <div class="space-y-6">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+        <div class="space-y-6 order-2 lg:order-1">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full pill text-xs uppercase tracking-[0.2em]">
             <span>4D CAD</span><span>•</span><span>Curve-Native</span><span>•</span><span>No Tessellation</span>
           </div>
           <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight">
-            Pure geometry. Infinite resolution. Built for the Adaptive π backers.
+            Adaptive π — The first 4D, curve-native CAD. No tessellation. Infinite scaling.
           </h1>
           <p class="text-lg text-slate-300 max-w-xl">
-            Adaptive π turns projected wedge algebra into a creator toolset — analytic rendering, multi-dimensional operations,
-            and fabrication-ready exports without triangulated meshes. Back the campaign to unlock the first curve-native CAD platform.
+            Build with pure math instead of triangles. Adaptive π delivers analytic rendering, multi-dimensional operations,
+            and fabrication-ready exports for backers bringing the next wave of geometry tools to life.
           </p>
           <div class="flex flex-wrap items-center gap-4">
             <a href="https://www.kickstarter.com/" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-teal-400 text-slate-950 font-semibold shadow-lg shadow-teal-500/30 hover:bg-teal-300">
               Back on Kickstarter
             </a>
-            <a href="#features" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl border border-slate-500/80 hover:border-slate-300 text-slate-200">
-              Explore features
+            <a href="#video" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl border border-slate-500/80 hover:border-slate-300 text-slate-200">
+              Watch the teaser
             </a>
           </div>
           <dl class="grid sm:grid-cols-3 gap-5 pt-2 text-sm text-slate-300">
@@ -180,6 +169,17 @@
               <p class="text-xs mt-1 text-slate-400">Alignment fidelity across kilometer-long infrastructure projects.</p>
             </div>
           </dl>
+        </div>
+        <div class="video-frame order-1 lg:order-2" id="video">
+          <video controls playsinline preload="metadata" poster="assets/hero_poster.jpg">
+            <source src="assets/hero.mp4" type="video/mp4" />
+            <div class="video-fallback">
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">Drop your hero.mp4</p>
+                <p>Place the Kickstarter teaser at <code>site/assets/hero.mp4</code> to autoplay above the fold.</p>
+              </div>
+            </div>
+          </video>
         </div>
       </div>
     </section>
