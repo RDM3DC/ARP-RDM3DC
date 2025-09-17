@@ -3,245 +3,355 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adaptive π — 4D Curve-Native CAD</title>
-  <meta name="description" content="Adaptive π 4D CAD: curve-native, no tessellation, infinite scaling.">
-  <meta property="og:title" content="Adaptive π — 4D Curve-Native CAD" />
-  <meta property="og:description" content="Curve-native, multi-dimensional CAD with analytic rendering and infinite scaling." />
+  <title>Adaptive π — Curve-Native 4D CAD</title>
+  <meta name="description" content="Adaptive π is the first curve-native 4D CAD platform. No tessellation. Infinite scaling. Back the Kickstarter to unlock the next era of geometry." />
+  <meta property="og:title" content="Adaptive π — Curve-Native 4D CAD" />
+  <meta property="og:description" content="Back Adaptive π on Kickstarter to bring analytic, curve-native geometry and 4D CAD tools to life." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rdm3dc.github.io/ARP-RDM3DC/" />
   <meta property="og:image" content="https://rdm3dc.github.io/ARP-RDM3DC/assets/logos/adaptivepi_mark.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Adaptive π — 4D Curve-Native CAD" />
-  <meta name="twitter:description" content="Back Adaptive π to bring 4D, curve-native CAD with no tessellation and infinite scaling to life." />
+  <meta name="twitter:title" content="Adaptive π — Curve-Native 4D CAD" />
+  <meta name="twitter:description" content="Curve-native, multi-dimensional CAD with analytic rendering and infinite scaling. Back the Kickstarter today." />
   <meta name="twitter:image" content="https://rdm3dc.github.io/ARP-RDM3DC/assets/logos/adaptivepi_mark.svg" />
-  <link rel="icon" href="assets/logos/adaptivepi_mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logos/adaptivepi_mark.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --bg0:#070911; --bg1:#101b2d; --glass:rgba(255,255,255,0.06);
-      --cy:#7ff4f4; --mag:#f48ae1; --yel:#ffd98a; --mut:#9fb6d1;
+      --bg0: #05070f;
+      --bg1: #0b1423;
+      --glass: rgba(15, 23, 42, 0.55);
+      --glass-border: rgba(148, 163, 184, 0.18);
+      --glow-teal: rgba(45, 212, 191, 0.35);
+      --glow-magenta: rgba(244, 138, 225, 0.32);
+      --pill: rgba(45, 212, 191, 0.14);
     }
-    body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-    .card { background: var(--glass); border: 1px solid rgba(255,255,255,0.08); }
-    .pill { background: rgba(127,244,244,0.12); border: 1px solid rgba(127,244,244,0.35); }
-    .grad { background:
-      radial-gradient(1200px 700px at 60% -10%, #14324a 0%, transparent 60%),
-      radial-gradient(900px 600px at -10% 20%, #2d1141 0%, transparent 55%),
-      linear-gradient(180deg, var(--bg0), var(--bg1));
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(45, 212, 191, 0.18), transparent 55%),
+        radial-gradient(900px 500px at -5% 30%, rgba(244, 138, 225, 0.16), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      color: #e2e8f0;
+      min-height: 100vh;
     }
-    .card-grid { background-image: linear-gradient(135deg, rgba(127,244,244,0.08) 0%, rgba(127,244,244,0) 60%); }
+    .blur-sheen {
+      position: absolute;
+      inset: -40% -30% auto;
+      height: 520px;
+      background: radial-gradient(circle at 20% 40%, var(--glow-teal), transparent 55%),
+        radial-gradient(circle at 70% 30%, var(--glow-magenta), transparent 60%);
+      filter: blur(120px);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(18px);
+    }
+    .feature-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.72);
+    }
+    .pill {
+      background: var(--pill);
+      border: 1px solid rgba(45, 212, 191, 0.32);
+      color: rgba(178, 245, 234, 0.92);
+      letter-spacing: 0.04em;
+    }
+    .video-frame {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      padding: 1.1rem;
+      background: linear-gradient(140deg, rgba(45, 212, 191, 0.12), rgba(15, 23, 42, 0.92));
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 24px 60px rgba(14, 19, 36, 0.48);
+    }
+    .video-frame::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.35), transparent 70%),
+        radial-gradient(circle at 70% 80%, rgba(244, 138, 225, 0.25), transparent 65%),
+        rgba(15, 23, 42, 0.65);
+      z-index: 0;
+    }
+    .video-frame video,
+    .video-frame .video-fallback {
+      position: relative;
+      z-index: 1;
+      border-radius: 18px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .video-fallback {
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
   </style>
 </head>
-<body class="grad text-slate-200">
-  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <img src="assets/logos/adaptivepi_mark.svg" class="w-9 h-9" alt="Adaptive π logo">
-      <span class="font-extrabold tracking-tight text-lg">Adaptive π</span>
+<body class="relative overflow-hidden">
+  <div class="blur-sheen"></div>
+  <header class="relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-7 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logos/adaptivepi_mark.svg" alt="Adaptive π logo" class="w-10 h-10" />
+        <span class="text-lg font-extrabold tracking-tight">Adaptive π</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+        <a class="hover:text-white" href="#features">Features</a>
+        <a class="hover:text-white" href="#reasons">Why now</a>
+        <a class="hover:text-white" href="#rewards">Rewards</a>
+        <a class="hover:text-white" href="#faq">FAQ</a>
+        <a class="hover:text-white" href="#contact">Contact</a>
+        <a class="hover:text-white" href="https://github.com/RDM3DC/AdaptiveCAD" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="ml-3 inline-flex items-center gap-2 rounded-xl bg-teal-400/20 border border-teal-300/60 px-4 py-2 text-teal-100 font-semibold hover:bg-teal-300/20"
+          href="https://www.kickstarter.com/">
+          Back on Kickstarter
+        </a>
+      </nav>
     </div>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="#features" class="hover:text-white">Features</a>
-      <a href="#video" class="hover:text-white">Video</a>
-      <a href="#rewards" class="hover:text-white">Rewards</a>
-      <a href="#roadmap" class="hover:text-white">Roadmap</a>
-      <a href="#contact" class="hover:text-white">Contact</a>
-      <a href="https://github.com/RDM3DC/AdaptiveCAD" class="hover:text-white">GitHub</a>
-      <!-- Replace the Kickstarter URL once the campaign link is ready -->
-      <a href="https://www.kickstarter.com/" class="ml-3 px-4 py-2 rounded-xl bg-teal-400/20 border border-teal-300/50 hover:bg-teal-300/30 text-teal-200">Back on Kickstarter</a>
-    </nav>
   </header>
 
-  <section class="max-w-6xl mx-auto px-6 pt-6 pb-10">
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <div class="inline-flex gap-2 items-center pill px-3 py-1 rounded-full text-teal-200 text-xs mb-4">
-          <span>4D CAD</span><span class="text-slate-400">•</span><span>No tessellation</span><span class="text-slate-400">•</span><span>Infinite scaling</span>
+  <main class="relative z-10">
+    <section class="max-w-6xl mx-auto px-6 pb-16">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+        <div class="video-frame" id="video">
+          <video controls playsinline preload="metadata" poster="assets/hero_poster.jpg">
+            <source src="assets/hero.mp4" type="video/mp4" />
+            <div class="video-fallback">
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">Drop your hero.mp4</p>
+                <p>Place the Kickstarter teaser at <code>site/assets/hero.mp4</code> to autoplay above the fold.</p>
+              </div>
+            </div>
+          </video>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          Adaptive π — The first 4D, curve-native CAD.
-        </h1>
-        <p class="text-slate-300 mt-4 text-lg">
-          No tessellation. Infinite scaling. Build with analytic geometry that keeps every curve smooth
-          from concept to field deployment.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="https://www.kickstarter.com/" class="px-5 py-3 rounded-xl bg-teal-500 text-slate-900 font-semibold hover:bg-teal-400">Back on Kickstarter</a>
-          <a href="#video" class="px-5 py-3 rounded-xl border border-slate-600 hover:border-slate-400">Watch the Demo</a>
-        </div>
-        <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-400">
-          <span class="px-2 py-1 rounded pill">Civil add-on (survey &amp; alignments)</span>
-          <span class="px-2 py-1 rounded pill">Future game engine</span>
-          <span class="px-2 py-1 rounded pill">AMA / ACProj format</span>
-        </div>
-      </div>
-      <div id="video" class="card rounded-2xl overflow-hidden">
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          poster="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201200%20675%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%3Cstop%20stop-color%3D%27%2309171f%27%20offset%3D%270%25%27/%3E%3Cstop%20stop-color%3D%27%231a3450%27%20offset%3D%2750%25%27/%3E%3Cstop%20stop-color%3D%27%232d1141%27%20offset%3D%27100%25%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20fill%3D%27url%28%23g%29%27%20width%3D%271200%27%20height%3D%27675%27/%3E%3Cg%20fill%3D%27%237ff4f4%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20text-anchor%3D%27middle%27%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2745%25%27%20font-size%3D%2758%27%3EDrop%20your%20hero.mp4%3C/text%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2760%25%27%20font-size%3D%2736%27%20fill%3D%27%239fb6d1%27%3Esite/assets/hero.mp4%3C/text%3E%3C/g%3E%3C/svg%3E"
-          class="block w-full h-auto bg-slate-900/60"
-        >
-          <source src="assets/hero.mp4" type="video/mp4">
-          <p class="p-4 text-sm text-slate-300 bg-slate-900/70">Drop your hero.mp4 teaser into <code>site/assets/hero.mp4</code> to play the video.</p>
-        </video>
-        <div class="px-5 py-3 text-xs text-slate-400 bg-slate-900/60 border-t border-white/5">
-          Replace <code>site/assets/hero.mp4</code> with the Kickstarter teaser. To use a custom poster frame, host the image and update the <code>poster</code> attribute above.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="features" class="max-w-6xl mx-auto px-6 pb-6">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Why Adaptive π</h2>
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">No Tessellation</h3>
-        <p class="text-sm text-slate-300">Analytic curves and surfaces mean smooth geometry at any zoom level without triangle meshes.</p>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Infinite Scaling</h3>
-        <p class="text-sm text-slate-300">Resolution-independent rendering and export for fabrication, printing, or AR/VR twins.</p>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Multi-Dimensional</h3>
-        <p class="text-sm text-slate-300">Grade-aware algebra unlocks operations beyond 3D—time, fields, and constraints live together.</p>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Projected Wedge Algebra (⋆)</h3>
-        <p class="text-sm text-slate-300">Grade-2 closure with antisymmetric interactions and a compact Λ²V representation.</p>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Civil Add-On</h3>
-        <p class="text-sm text-slate-300">Alignment accuracy for construction survey modeling, corridor design, and field validation.</p>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Playground App</h3>
-        <p class="text-sm text-slate-300">Parametric editors, curve libraries, STL repair, and export tuned for creators.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="max-w-6xl mx-auto px-6 py-8">
-    <div class="card rounded-2xl card-grid p-8 flex flex-col lg:flex-row gap-8 lg:items-center">
-      <div class="lg:w-1/2">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">Pure math. Real hardware.</h2>
-        <p class="text-sm md:text-base text-slate-300">
-          Adaptive π fuses analytic geometry with tangible fabrication: analytic rendering on CPUs today,
-          GPUs tomorrow; ER-fluid control, CNC, and robotics aligned to the same math library.
-        </p>
-      </div>
-      <div class="lg:w-1/2 grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
-        <div class="card rounded-xl p-4">
-          <div class="font-semibold text-slate-100">File Formats</div>
-          <p class="mt-1">AMA / ACProj with Blender and FreeCAD plugins on the roadmap.</p>
-        </div>
-        <div class="card rounded-xl p-4">
-          <div class="font-semibold text-slate-100">Survey Ready</div>
-          <p class="mt-1">Chainage-aware alignments with millimeter fidelity over kilometers.</p>
-        </div>
-        <div class="card rounded-xl p-4">
-          <div class="font-semibold text-slate-100">Game Engine Path</div>
-          <p class="mt-1">Projected to feed adaptive meshes for real-time, non-Euclidean scenes.</p>
-        </div>
-        <div class="card rounded-xl p-4">
-          <div class="font-semibold text-slate-100">Backer Community</div>
-          <p class="mt-1">Exclusive AMAs, roadmap votes, and early playground builds.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="rewards" class="max-w-6xl mx-auto px-6 py-8">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Rewards</h2>
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Early Backer</h3>
-        <ul class="text-sm list-disc list-inside text-slate-300 space-y-1">
-          <li>Playground access (alpha)</li>
-          <li>Backer badge</li>
-          <li>Private Discord access</li>
-        </ul>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Creator</h3>
-        <ul class="text-sm list-disc list-inside text-slate-300 space-y-1">
-          <li>Playground + civil preview</li>
-          <li>Export tools &amp; updates</li>
-          <li>Priority feedback loop</li>
-        </ul>
-      </div>
-      <div class="card rounded-xl p-5">
-        <h3 class="font-semibold mb-2">Pro</h3>
-        <ul class="text-sm list-disc list-inside text-slate-300 space-y-1">
-          <li>Priority features</li>
-          <li>Plugin dev support</li>
-          <li>Extended roadmap sessions</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="roadmap" class="max-w-6xl mx-auto px-6 py-8">
-    <div class="grid lg:grid-cols-2 gap-6">
-      <div class="card rounded-2xl p-6">
-        <h2 class="text-2xl font-bold mb-2">Roadmap Highlights</h2>
-        <ul class="space-y-3 text-sm text-slate-300">
-          <li><span class="font-semibold text-slate-100">Alpha Playground:</span> Parametric editor, inspector, and analytic rendering with export.</li>
-          <li><span class="font-semibold text-slate-100">Civil Toolkit:</span> Corridor alignment, station equations, offset surfaces, and data QA.</li>
-          <li><span class="font-semibold text-slate-100">Open Plugins:</span> Blender / FreeCAD connectors, AMA SDK, and Python bindings.</li>
-          <li><span class="font-semibold text-slate-100">Field Ops:</span> GNSS + lidar ingestion, job replay, and AR overlays.</li>
-        </ul>
-      </div>
-      <div class="card rounded-2xl p-6">
-        <h2 class="text-2xl font-bold mb-2">Tech Stack</h2>
-        <ul class="space-y-3 text-sm text-slate-300">
-          <li><span class="font-semibold text-slate-100">Core Library:</span> Adaptive π projected wedge algebra with analytic kernels.</li>
-          <li><span class="font-semibold text-slate-100">Rendering:</span> CPU analytic renderer now; GPU acceleration and game engine integration next.</li>
-          <li><span class="font-semibold text-slate-100">Interoperability:</span> AMA, ACProj, IFC, LandXML, and STL repair pipelines.</li>
-          <li><span class="font-semibold text-slate-100">Collaboration:</span> Backer portal with nightly builds, tutorials, and surveys.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="max-w-6xl mx-auto px-6 py-12">
-    <div class="card rounded-2xl p-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold">Let’s build Adaptive π together</h2>
-          <p class="mt-3 text-sm md:text-base text-slate-300">
-            Partnerships, research collaborations, or press—reach out directly anytime.
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full pill text-xs uppercase tracking-[0.2em]">
+            <span>4D CAD</span><span>•</span><span>Curve-Native</span><span>•</span><span>No Tessellation</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight">
+            Pure geometry. Infinite resolution. Built for the Adaptive π backers.
+          </h1>
+          <p class="text-lg text-slate-300 max-w-xl">
+            Adaptive π turns projected wedge algebra into a creator toolset — analytic rendering, multi-dimensional operations,
+            and fabrication-ready exports without triangulated meshes. Back the campaign to unlock the first curve-native CAD platform.
           </p>
-          <div class="mt-6 flex flex-wrap gap-3 text-sm">
-            <a class="px-4 py-2 rounded-xl bg-teal-500 text-slate-900 font-semibold hover:bg-teal-400" href="mailto:ryanmckenna26@gmail.com">ryanmckenna26@gmail.com</a>
-            <a class="px-4 py-2 rounded-xl border border-slate-600 hover:border-slate-400" href="sms:9513920096">Text 951-392-0096</a>
-            <a class="px-4 py-2 rounded-xl border border-slate-600 hover:border-slate-400" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="px-4 py-2 rounded-xl border border-slate-600 hover:border-slate-400" href="https://x.com/RDM3DC" target="_blank" rel="noreferrer">X (Twitter)</a>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="https://www.kickstarter.com/" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-teal-400 text-slate-950 font-semibold shadow-lg shadow-teal-500/30 hover:bg-teal-300">
+              Back on Kickstarter
+            </a>
+            <a href="#features" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl border border-slate-500/80 hover:border-slate-300 text-slate-200">
+              Explore features
+            </a>
           </div>
+          <dl class="grid sm:grid-cols-3 gap-5 pt-2 text-sm text-slate-300">
+            <div class="glass rounded-2xl p-4">
+              <dt class="text-xs uppercase tracking-wider text-slate-400">Analytic Kernels</dt>
+              <dd class="mt-1 text-2xl font-bold text-teal-200">4×</dd>
+              <p class="text-xs mt-1 text-slate-400">Speed-up versus tessellated CAD for curvature-sensitive work.</p>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <dt class="text-xs uppercase tracking-wider text-slate-400">Backer slots</dt>
+              <dd class="mt-1 text-2xl font-bold text-teal-200">500</dd>
+              <p class="text-xs mt-1 text-slate-400">Early adopters gain lifetime creator updates and AMAs.</p>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <dt class="text-xs uppercase tracking-wider text-slate-400">Civil accuracy</dt>
+              <dd class="mt-1 text-2xl font-bold text-teal-200">±1 mm</dd>
+              <p class="text-xs mt-1 text-slate-400">Alignment fidelity across kilometer-long infrastructure projects.</p>
+            </div>
+          </dl>
         </div>
-        <div class="space-y-4 text-sm text-slate-300">
-          <div>
-            <div class="font-semibold text-slate-100">Office Hours</div>
-            <p class="mt-1">Weekly AMAs for backers. Calendar invite provided after pledging.</p>
+      </div>
+    </section>
+
+    <section id="features" class="max-w-6xl mx-auto px-6 pb-16">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold">Why Adaptive π is different</h2>
+        <p class="mt-4 text-slate-300 text-lg">
+          Traditional CAD breaks curves into triangles. Adaptive π keeps them analytic, letting you design in 4D with pristine
+          curvature, time-aware operations, and exports that scale indefinitely.
+        </p>
+      </div>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-slate-100">Curve-native core</h3>
+          <p class="mt-2 text-sm text-slate-300">Projected wedge algebra preserves smoothness at every zoom level—no tessellation, no faceting.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-slate-100">Analytic rendering</h3>
+          <p class="mt-2 text-sm text-slate-300">CPU-first renderer today with GPU acceleration on deck for cinematic previews and real-time review.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-slate-100">Civil toolkit</h3>
+          <p class="mt-2 text-sm text-slate-300">Chainage-aware alignments, offset surfaces, and QA workflows designed for survey and field deployment.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-slate-100">Fabrication-ready</h3>
+          <p class="mt-2 text-sm text-slate-300">Export high-order curves directly to CNC, additive manufacturing, and ER-fluid control systems.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-slate-100">Creator playground</h3>
+          <p class="mt-2 text-sm text-slate-300">Parametric editor, curve libraries, STL healing, and generative tools tuned for hybrid designers.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-slate-100">Open integrations</h3>
+          <p class="mt-2 text-sm text-slate-300">Blender + FreeCAD connectors, AMA/ACProj format, and API hooks for custom pipelines.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reasons" class="max-w-6xl mx-auto px-6 pb-16">
+      <div class="glass rounded-3xl p-10 grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
+        <div class="space-y-5">
+          <h2 class="text-3xl font-bold text-slate-100">Built for the next wave of makers</h2>
+          <p class="text-slate-300 text-base">
+            Adaptive π started as a research kernel for time-aware geometry. We are now turning it into a product for studios,
+            civil engineers, roboticists, and experimental artists. Backers unlock the polish, documentation, and plugins to ship projects.
+          </p>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex gap-3"><span class="text-teal-300">◆</span><span>Bring non-Euclidean forms into existing pipelines with millimeter precision.</span></li>
+            <li class="flex gap-3"><span class="text-teal-300">◆</span><span>Own the roadmap through exclusive AMAs, early builds, and priority votes.</span></li>
+            <li class="flex gap-3"><span class="text-teal-300">◆</span><span>Access future game-engine experiments that stream analytic curves into adaptive meshes.</span></li>
+          </ul>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300">
+          <div class="feature-card rounded-2xl p-5">
+            <h3 class="font-semibold text-slate-100">Launch kit (Month 0)</h3>
+            <p class="mt-2">Backer portal with nightly playground builds, tutorial library, and Discord.</p>
           </div>
-          <div>
-            <div class="font-semibold text-slate-100">Updates</div>
-            <p class="mt-1">Kickstarter updates, newsletters, and technical write-ups on adaptive geometry.</p>
+          <div class="feature-card rounded-2xl p-5">
+            <h3 class="font-semibold text-slate-100">Civil preview (Month 2)</h3>
+            <p class="mt-2">Station equations, corridor inspector, and survey QA reports.</p>
           </div>
-          <div>
-            <div class="font-semibold text-slate-100">Media Kit</div>
-            <p class="mt-1">Logos and renders live in <code>site/assets/</code>. Swap in new art anytime.</p>
+          <div class="feature-card rounded-2xl p-5">
+            <h3 class="font-semibold text-slate-100">Plugin beta (Month 4)</h3>
+            <p class="mt-2">Blender / FreeCAD connectors plus AMA/ACProj SDK for custom workflows.</p>
+          </div>
+          <div class="feature-card rounded-2xl p-5">
+            <h3 class="font-semibold text-slate-100">Realtime lab (Month 6)</h3>
+            <p class="mt-2">Adaptive mesh streaming tests toward a future game/visualization engine.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="max-w-6xl mx-auto px-6 py-10 text-slate-400 text-sm">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+    <section id="rewards" class="max-w-6xl mx-auto px-6 pb-16">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold">Reward tiers for backers</h2>
+        <p class="mt-4 text-slate-300 text-lg">Pick the path that matches your studio or research needs. Every tier gets access to behind-the-scenes updates and office hours.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-5">
+        <div class="feature-card rounded-2xl p-6">
+          <div class="text-xs font-semibold uppercase tracking-[0.3em] text-teal-200 mb-3">Early Backer</div>
+          <h3 class="text-xl font-semibold text-slate-100">Playground access</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>Alpha Playground with nightly builds</li>
+            <li>Backer badge + Discord</li>
+            <li>First look at roadmap drops</li>
+          </ul>
+        </div>
+        <div class="feature-card rounded-2xl p-6 border-teal-300/40">
+          <div class="text-xs font-semibold uppercase tracking-[0.3em] text-teal-200 mb-3">Creator</div>
+          <h3 class="text-xl font-semibold text-slate-100">Civil + export tools</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>Everything in Early Backer</li>
+            <li>Civil alignment preview + QA pack</li>
+            <li>Export pipelines &amp; update stream</li>
+          </ul>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <div class="text-xs font-semibold uppercase tracking-[0.3em] text-teal-200 mb-3">Pro Lab</div>
+          <h3 class="text-xl font-semibold text-slate-100">Strategic partner</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>Priority features + roadmap sessions</li>
+            <li>Plugin developer support</li>
+            <li>Dedicated office hours</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="max-w-6xl mx-auto px-6 pb-16">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
+        <p class="mt-4 text-slate-300 text-lg">Answers to the most common questions from backers and press.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-5">
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="font-semibold text-slate-100">What does “4D” mean here?</h3>
+          <p class="mt-2 text-sm text-slate-300">Adaptive π handles time, fields, and higher-grade geometry alongside spatial dimensions. You can model dynamic systems without collapsing to static meshes.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="font-semibold text-slate-100">How heavy is the tool?</h3>
+          <p class="mt-2 text-sm text-slate-300">The alpha runs on modern Apple, NVIDIA, Intel, and AMD hardware. Analytic rendering is CPU-first with GPU upgrades mapped post-campaign.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="font-semibold text-slate-100">Which formats are supported?</h3>
+          <p class="mt-2 text-sm text-slate-300">AMA / ACProj natively with bridges to IFC, LandXML, and STL repair. Blender + FreeCAD plugins are on the Creator tier roadmap.</p>
+        </div>
+        <div class="feature-card rounded-2xl p-6">
+          <h3 class="font-semibold text-slate-100">Can I use my own footage?</h3>
+          <p class="mt-2 text-sm text-slate-300">Yes — drop <code>hero.mp4</code> and an optional <code>hero_poster.jpg</code> in <code>site/assets/</code>. The deploy workflow keeps binaries out of git unless you opt-in.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-5xl mx-auto px-6 pb-20">
+      <div class="glass rounded-3xl p-8 md:p-12">
+        <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-slate-100">Let’s collaborate</h2>
+            <p class="mt-3 text-sm md:text-base text-slate-300">
+              Partnerships, research collabs, or press? Reach out directly — we reply fast.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3 text-sm">
+              <a class="px-4 py-2 rounded-2xl bg-teal-400 text-slate-950 font-semibold hover:bg-teal-300" href="mailto:ryanmckenna26@gmail.com">ryanmckenna26@gmail.com</a>
+              <a class="px-4 py-2 rounded-2xl border border-slate-500/80 hover:border-slate-300" href="sms:9513920096">Text 951-392-0096</a>
+              <a class="px-4 py-2 rounded-2xl border border-slate-500/80 hover:border-slate-300" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="px-4 py-2 rounded-2xl border border-slate-500/80 hover:border-slate-300" href="https://x.com/RDM3DC" target="_blank" rel="noreferrer">X (Twitter)</a>
+            </div>
+          </div>
+          <div class="space-y-5 text-sm text-slate-300">
+            <div>
+              <div class="font-semibold text-slate-100">Office hours</div>
+              <p class="mt-1">Weekly AMAs for backers — calendar invite delivered with your pledge receipt.</p>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-100">Update cadence</div>
+              <p class="mt-1">Kickstarter posts, behind-the-scenes footage, and technical write-ups every sprint.</p>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-100">Media kit</div>
+              <p class="mt-1">Logos, renders, and footage live in <code>site/assets/</code> for your press outreach.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-white/5 bg-slate-950/40">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-slate-400">
       <div>© <span id="year"></span> RDM3DC — Adaptive π</div>
       <div class="flex items-center gap-4">
         <a href="https://github.com/RDM3DC/AdaptiveCAD" target="_blank" rel="noreferrer" class="hover:text-white">GitHub</a>
@@ -251,6 +361,7 @@
       </div>
     </div>
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

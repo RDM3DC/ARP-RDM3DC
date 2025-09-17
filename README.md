@@ -2,6 +2,12 @@
 
 Static landing page for Adaptive π — the 4D, curve-native CAD campaign.
 
+The site is a single-page Tailwind layout with:
+
+- A hero section that spotlights the Kickstarter teaser video directly above the fold.
+- Feature grids describing the curve-native workflow, roadmap, and reward tiers.
+- FAQ and contact modules that keep the existing email/phone details visible to visitors.
+
 ## Live deployment
 
 - **Production URL:** https://rdm3dc.github.io/ARP-RDM3DC/
