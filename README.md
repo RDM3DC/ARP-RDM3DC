@@ -21,6 +21,9 @@ ARP-RDM3DC/
     └── pages.yml          # Static deploy pipeline
 ```
 
+Legacy React prototypes and their asset folders have been removed so the repository contains a single
+source of truth for the Tailwind-powered static site.
+
 ### Updating the hero video
 
 1. Replace `site/assets/hero.mp4` with the latest teaser (keep filename).
