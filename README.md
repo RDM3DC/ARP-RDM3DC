@@ -1,37 +1,49 @@
-# ARP-RDM3DC
+# ARP-RDM3DC Site
 
-## Website Status: ✅ LIVE
+Static landing page for Adaptive π — the 4D, curve-native CAD campaign.
 
-**Public URL:** https://rdm3dc.github.io/ARP-RDM3DC/
+## Live deployment
 
-## About
+- **Production URL:** https://rdm3dc.github.io/ARP-RDM3DC/
+- **Hosting:** GitHub Pages (deployed by GitHub Actions)
 
-This repository hosts a live website deployed via GitHub Pages. The website provides information about the ARP-RDM3DC project status and accessibility.
+Every push to the `main` branch publishes the contents of [`site/`](site/) via the workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
 
-## Deployment
+## Project structure
 
-The website is automatically deployed to GitHub Pages whenever changes are pushed to the main branch. The deployment is handled by GitHub's built-in Pages service.
+```
+ARP-RDM3DC/
+├── index.html             # Redirect shim → site/index.html for local previews
+├── site/
+│   ├── index.html         # Landing page served by GitHub Pages
+│   └── assets/            # Videos, posters, logos, screenshots
+└── .github/workflows/
+    └── pages.yml          # Static deploy pipeline
+```
 
-### Local Development
+### Updating the hero video
 
-To test the website locally:
+1. Replace `site/assets/hero.mp4` with the latest teaser (keep filename).
+2. (Optional) Host a poster image and update the `<video poster="…">` attribute in [`site/index.html`](site/index.html) if you do not want to use the default inline gradient placeholder.
+3. Remove the filenames from [`site/assets/.gitignore`](site/assets/.gitignore) if you want to commit the media, then commit the changes so the deploy workflow uploads them to Pages.
 
-1. Clone the repository
-2. Open `index.html` in a web browser
-3. Or serve it using a simple HTTP server:
-   ```bash
-   python3 -m http.server 8000
-   # Then visit http://localhost:8000
-   ```
+### Customising copy & CTA
 
-## Files
+- Update Kickstarter links inside [`site/index.html`](site/index.html) once the final campaign URL is ready.
+- Feature cards, rewards, and roadmap blurbs are pure HTML — adjust text or add new cards as needed.
 
-- `index.html` - Main website page
-- `start.py` - Original project file
-- `README.md` - This documentation
+### Local development
 
-## Project Information
+The site is fully static. Open `site/index.html` directly in a browser or run a lightweight HTTP server:
 
-- **Repository:** RDM3DC/ARP-RDM3DC
-- **Deployment:** GitHub Pages
-- **Status:** Live and publicly accessible
+```bash
+cd site
+python3 -m http.server 8000
+# Visit http://localhost:8000
+```
+
+> Tip: opening the repository root `index.html` will instantly redirect to `site/index.html`, so local previews show the live layout without needing to remember the subfolder.
+
+### Contact
+
+Reach out via [ryanmckenna26@gmail.com](mailto:ryanmckenna26@gmail.com) or text **951‑392‑0096** for any content updates.

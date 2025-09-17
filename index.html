@@ -1,164 +1,77 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RDM3DC — Adaptive Systems</title>
-    <meta name="description" content="RDM3DC — Adaptive research, prototyping, and apps.">
-    <link rel="icon" href="assets/channels4_profile.jpg">
-    <!-- Tailwind CDN for a zero-build static site -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adaptive π — Launch</title>
+    <meta name="description" content="Adaptive π 4D CAD campaign landing page." />
+    <meta http-equiv="refresh" content="0; url=site/index.html" />
+    <script>
+      window.location.replace('site/index.html');
+    </script>
     <style>
-      /* Tiny helpers (kept minimal to stay self-contained) */
-      .container-7xl{ max-width: 80rem; margin-left:auto; margin-right:auto; padding-left:1rem; padding-right:1rem }
-      @media (min-width:640px){ .container-7xl{ padding-left:1.5rem; padding-right:1.5rem } }
-      @media (min-width:1024px){ .container-7xl{ padding-left:2rem; padding-right:2rem } }
-      .card{ border-radius:1rem; border:1px solid rgb(255 255 255 / 0.1); background: rgb(255 255 255 / 0.05) }
-      .btn{ display:inline-flex; align-items:center; justify-content:center; border-radius:1rem; padding:.5rem 1rem; font-weight:500 }
-      .btn-primary{ background: rgba(34,211,238,0.9); color:#0f172a }
-      .btn-primary:hover{ background: rgba(34,211,238,1) }
-      .btn-secondary{ background: rgba(255,255,255,0.1); color:white }
-      .btn-secondary:hover{ background: rgba(255,255,255,0.2) }
-      .input{ width:100%; border-radius:.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:.75rem 1rem; outline:none }
-      .input:focus{ box-shadow: 0 0 0 2px rgba(34,211,238,0.6) }
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 20% 20%, rgba(127,244,244,0.12), transparent 55%),
+          radial-gradient(circle at 80% 30%, rgba(244,138,225,0.12), transparent 60%),
+          #080d16;
+        color: #e2e8f0;
+        text-align: center;
+        padding: 2rem;
+      }
+      main {
+        max-width: 28rem;
+        display: grid;
+        gap: 1rem;
+        padding: 2.5rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(10,14,24,0.7);
+        backdrop-filter: blur(12px);
+      }
+      a {
+        color: #7ff4f4;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        background: #2dd4bf;
+        color: #0f172a;
+        font-weight: 600;
+      }
+      .cta:hover {
+        background: #5eead4;
+      }
+      .contact {
+        font-size: 0.875rem;
+        color: #94a3b8;
+      }
     </style>
   </head>
-  <body class="bg-slate-950 text-slate-100">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/60 border-b border-white/5">
-      <div class="container-7xl h-16 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <img src="assets/channels4_profile.jpg" alt="RDM3DC logo" class="h-8 w-8 rounded-xl">
-          <span class="font-semibold tracking-tight">RDM3DC</span>
-        </div>
-        <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-          <a href="#divisions" class="hover:text-white">Divisions</a>
-          <a href="#projects" class="hover:text-white">Projects</a>
-          <a href="#why" class="hover:text-white">Why Us</a>
-          <a href="#contact" class="hover:text-white">Contact</a>
-        </nav>
-        <a href="#contact" class="btn btn-primary text-sm">RDM3DC</a>
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div class="absolute inset-0 -z-10 opacity-30" style="mask-image:radial-gradient(60% 50% at 50% 40%,black,transparent)">
-        <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[36rem] w-[36rem] rounded-full bg-gradient-to-tr from-cyan-600/60 via-blue-500/60 to-teal-500/60 blur-3xl"></div>
-      </div>
-      <div class="container-7xl py-20 md:py-28 text-center">
-        <h1 class="text-4xl md:text-6xl font-semibold tracking-tight">Building <span class="text-cyan-300">Adaptive</span> Systems that Learn, Align & Ship</h1>
-        <p class="mt-5 text-slate-300 max-w-2xl mx-auto">
-          From ARP and RealignR to ER‑fluid prototypes and production‑ready tools — RDM3DC unifies research, engineering, and product.
-        </p>
-        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#projects" class="btn btn-primary text-base">Explore projects <span class="ml-2">→</span></a>
-          <a href="#contact" class="btn btn-secondary text-base">Partner</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Divisions -->
-    <section id="divisions" class="container-7xl py-16">
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Divisions</h2>
-      <p class="text-slate-300 mt-2 max-w-2xl">Organized to stay fast: research in Labs, product in Prototyping, verifiable science on‑chain, and customer apps in Apps.</p>
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="card p-5"><div class="text-lg font-medium">RDM3DC Labs</div><div class="text-sm text-slate-300 mt-1">ARP, RealignR, adaptive geometry — core research, papers, and open repos.</div></div>
-        <div class="card p-5"><div class="text-lg font-medium">Prototyping</div><div class="text-sm text-slate-300 mt-1">CAD, 3D printing, ER‑fluid devices, robotics, and rapid product development.</div></div>
-        <div class="card p-5"><div class="text-lg font-medium">Blockchain & Verification</div><div class="text-sm text-slate-300 mt-1">Reproducibility, verifiable experiments, audit trails, and open attestations.</div></div>
-        <div class="card p-5"><div class="text-lg font-medium">Apps</div><div class="text-sm text-slate-300 mt-1">Research dashboards, optimizer UIs, and realtime geo‑aware tools.</div></div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container-7xl py-16">
-      <div class="flex items-end justify-between gap-4">
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Featured Projects</h2>
-        <a class="text-sm text-cyan-300 hover:text-white" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">All GitHub ↗</a>
-      </div>
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="card p-5 hover:bg-white/[0.07] transition-colors">
-          <div class="text-xs uppercase tracking-wide text-cyan-300/80">Research</div>
-          <div class="mt-1 text-lg font-medium">Adaptive Resistance Principle (ARP)</div>
-          <p class="text-sm text-slate-300 mt-2">A dynamic systems law used for optimization, analog computing, and ML stability.</p>
-          <div class="mt-4"><a class="btn btn-secondary text-sm" target="_blank" rel="noreferrer" href="https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-">View repo</a></div>
-        </div>
-        <div class="card p-5 hover:bg-white/[0.07] transition-colors">
-          <div class="text-xs uppercase tracking-wide text-cyan-300/80">Optimizer</div>
-          <div class="mt-1 text-lg font-medium">RealignR</div>
-          <p class="text-sm text-slate-300 mt-2">A lifelong optimizer with slope‑aware memory and ARP integration.</p>
-          <div class="mt-4"><a class="btn btn-secondary text-sm" target="_blank" rel="noreferrer" href="https://github.com/RDM3DC/realignerpreview">See docs</a></div>
-        </div>
-        <div class="card p-5 hover:bg-white/[0.07] transition-colors">
-          <div class="text-xs uppercase tracking-wide text-cyan-300/80">CAD</div>
-          <div class="mt-1 text-lg font-medium">AdaptiveCAD</div>
-          <p class="text-sm text-slate-300 mt-2">Geometry that bends with constraints — πₐ, curve memory, and plugins.</p>
-          <div class="mt-4"><a class="btn btn-secondary text-sm" target="_blank" rel="noreferrer" href="https://github.com/RDM3DC/AdaptiveCAD">Explore</a></div>
-        </div>
-        <div class="card p-5 hover:bg-white/[0.07] transition-colors">
-          <div class="text-xs uppercase tracking-wide text-cyan-300/80">Geometry</div>
-          <div class="mt-1 text-lg font-medium">Adaptive Pi Geometry (πₐ)</div>
-          <p class="text-sm text-slate-300 mt-2">Constraint‑bent π for curved designs, survey alignment, and physics demos.</p>
-          <div class="mt-4"><a class="btn btn-secondary text-sm" href="#" rel="noreferrer">Overview</a></div>
-        </div>
-        <div class="card p-5 hover:bg-white/[0.07] transition-colors">
-          <div class="text-xs uppercase tracking-wide text-cyan-300/80">Circuits</div>
-          <div class="mt-1 text-lg font-medium">Adaptive Impedance Network (AIN)</div>
-          <p class="text-sm text-slate-300 mt-2">Dynamic G/C/L networks for optimization, control, and robust signal paths.</p>
-          <div class="mt-4"><a class="btn btn-secondary text-sm" href="#" rel="noreferrer">Design notes</a></div>
-        </div>
-        <div class="card p-5 hover:bg-white/[0.07] transition-colors">
-          <div class="text-xs uppercase tracking-wide text-cyan-300/80">Hardware</div>
-          <div class="mt-1 text-lg font-medium">ER‑Fluid Analog Computer</div>
-          <p class="text-sm text-slate-300 mt-2">Electrorheological hardware for TSP‑style routing and field solvers.</p>
-          <div class="mt-4"><a class="btn btn-secondary text-sm" href="#" rel="noreferrer">Lab prototype</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Us -->
-    <section id="why" class="container-7xl py-16">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div class="card p-5"><div class="font-medium">Research → Product</div><div class="text-sm text-slate-300 mt-1">We bridge frontier math/physics with shipped tools. If it can be simulated, we can prototype it.</div></div>
-        <div class="card p-5"><div class="font-medium">Open‑core, IP‑aware</div><div class="text-sm text-slate-300 mt-1">Public repos where it helps adoption; protected IP where it matters for a moat.</div></div>
-        <div class="card p-5"><div class="font-medium">Fast Experiments</div><div class="text-sm text-slate-300 mt-1">Tight iteration loops: sim → prototype → field test. We ship proof fast and scale what works.</div></div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container-7xl py-20">
-      <div class="card p-8 md:p-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <h3 class="text-2xl font-semibold tracking-tight">Let’s build something adaptive.</h3>
-            <p class="mt-2 text-slate-300">Consulting, partnerships, or R&D collabs. Tell us what you’re trying to unlock.</p>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a class="btn btn-primary" href="mailto:ryanmckenna26@gmail.com">ryanmckenna26@gmail.com</a>
-              <a class="btn btn-secondary" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="btn btn-secondary" href="sms:9513920096">Text 951‑392‑0096</a>
-              <a class="btn text-slate-300 hover:text-white" href="https://x.com/RDM3DC" target="_blank" rel="noreferrer">Follow on X</a>
-            </div>
-          </div>
-          <form class="space-y-3" onsubmit="event.preventDefault(); alert('Thanks! This demo form does not send yet.');">
-            <input class="input" placeholder="Your name">
-            <input class="input" placeholder="Email">
-            <textarea rows="5" class="input" placeholder="What would you like to build?"></textarea>
-            <button class="btn btn-primary w-full">Send message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/10">
-      <div class="container-7xl py-10 text-sm text-slate-400 flex flex-col md:flex-row items-center justify-between gap-3">
-        <div>© <span id="yr"></span> RDM3DC. All rights reserved.</div>
-        <div class="flex items-center gap-4">
-          <a class="hover:text-white" href="https://github.com/RDM3DC" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="hover:text-white" href="mailto:ryanmckenna26@gmail.com">Email</a>
-        </div>
-      </div>
-      <script>document.getElementById('yr').textContent = new Date().getFullYear()</script>
-    </footer>
+  <body>
+    <main>
+      <h1>Redirecting to the Adaptive π campaign site…</h1>
+      <p>One moment — the new Kickstarter landing page lives at <code>site/index.html</code>.</p>
+      <p><a class="cta" href="site/index.html">Continue to Adaptive π</a></p>
+      <p class="contact">
+        Need to reach us directly? Email <a href="mailto:ryanmckenna26@gmail.com">ryanmckenna26@gmail.com</a>
+        or text <a href="sms:9513920096">951‑392‑0096</a>.
+      </p>
+    </main>
   </body>
 </html>
