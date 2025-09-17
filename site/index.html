@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adaptive π — 4D Curve-Native CAD</title>
+  <meta name="description" content="AdaptiveCAD (Adaptive π): curve-native 4D CAD with no tessellation and infinite scaling.">
+  <link rel="icon" href="./assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --bg0:#0a0e18; --bg1:#0f1524; --glass:rgba(255,255,255,0.06); }
+    body { font-family: Inter, system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+    .grad { background: radial-gradient(1200px 700px at 60% -10%, #14324a 0%, transparent 60%),
+                         radial-gradient(900px 600px at -10% 20%, #2d1141 0%, transparent 55%),
+                         linear-gradient(180deg, var(--bg0), var(--bg1)); }
+    .card { background: var(--glass); border: 1px solid rgba(255,255,255,0.08); }
+    .pill { background: rgba(127,244,244,0.12); border: 1px solid rgba(127,244,244,0.35); }
+  </style>
+  <meta property="og:title" content="Adaptive π — 4D Curve-Native CAD">
+  <meta property="og:description" content="No tessellation. Infinite scaling. Multi-dimensional geometry.">
+  <meta property="og:image" content="./assets/og.jpg">
+  <meta property="og:type" content="website">
+</head>
+<body class="grad text-slate-200">
+  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="./assets/adaptivepi_mark.png" class="w-8 h-8" alt="Adaptive π">
+      <span class="font-extrabold tracking-tight">Adaptive π</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+      <a href="#features" class="hover:text-white">Features</a>
+      <a href="#video" class="hover:text-white">Video</a>
+      <a href="#faq" class="hover:text-white">FAQ</a>
+      <a href="https://github.com/RDM3DC/AdaptiveCAD" class="hover:text-white">GitHub</a>
+      <a href="YOUR_KICKSTARTER_URL" class="ml-3 px-4 py-2 rounded-xl bg-teal-400/20 border border-teal-300/50 hover:bg-teal-300/30 text-teal-200">Back on Kickstarter</a>
+    </nav>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 pt-6 pb-10">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex gap-2 items-center pill px-3 py-1 rounded-full text-teal-200 text-xs mb-4">
+          <span>4D CAD</span><span class="text-slate-400">•</span><span>No tessellation</span><span class="text-slate-400">•</span><span>Infinite scaling</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          Curve-Native <span class="text-teal-200">Adaptive π</span> Geometry
+        </h1>
+        <p class="text-slate-300 mt-4 text-lg">
+          Design with math—not triangles. AdaptiveCAD brings non-Euclidean, multi-dimensional geometry
+          and analytic rendering to CAD, survey, and digital fabrication.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="YOUR_KICKSTARTER_URL" class="px-5 py-3 rounded-xl bg-teal-500 text-slate-900 font-semibold hover:bg-teal-400">Back the Project</a>
+          <a href="#video" class="px-5 py-3 rounded-xl border border-slate-600 hover:border-slate-400">Watch the Demo</a>
+        </div>
+        <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-400">
+          <span class="px-2 py-1 rounded pill">Civil add-on (survey & alignments)</span>
+          <span class="px-2 py-1 rounded pill">Future game engine</span>
+          <span class="px-2 py-1 rounded pill">AMA / ACProj format</span>
+        </div>
+      </div>
+      <div id="video" class="card rounded-2xl overflow-hidden p-2">
+        <video controls playsinline poster="./assets/hero_poster.jpg" class="rounded-xl w-full h-auto">
+          <source src="./assets/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="max-w-6xl mx-auto px-6 pb-6">
+    <h2 class="text-2xl md:text-3xl font-bold mb-4">Why AdaptiveCAD</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">No Tessellation</h3><p class="text-sm text-slate-300">Analytic curves & surfaces—no triangle meshes. Smooth at any zoom.</p></div>
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">Infinite Scaling</h3><p class="text-sm text-slate-300">Resolution-independent rendering & export for 3D print and CNC.</p></div>
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">Multi-Dimensional</h3><p class="text-sm text-slate-300">Non-Euclidean ops and grade-aware algebra for complex structures.</p></div>
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">Projected Wedge Algebra (⋆)</h3><p class="text-sm text-slate-300">Grade-2 closure; antisymmetric interactions; compact Λ²V representation.</p></div>
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">Civil Add-On</h3><p class="text-sm text-slate-300">Alignment accuracy for construction survey modeling & design.</p></div>
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">Playground App</h3><p class="text-sm text-slate-300">Parametric editors, curve libraries, STL repair, and export.</p></div>
+    </div>
+  </section>
+
+  <section id="faq" class="max-w-6xl mx-auto px-6 pb-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-4">FAQ</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">What is “4D CAD” here?</h3><p class="text-sm text-slate-300">Curve-native geometry with time/dynamics and multi-dimensional operations—beyond 3D meshes.</p></div>
+      <div class="card rounded-xl p-5"><h3 class="font-semibold mb-2">Hardware?</h3><p class="text-sm text-slate-300">Runs on Apple/NVIDIA/Intel/AMD. Analytic renderer scales from CPU to GPU later.</p></div>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-10 text-slate-400 text-sm">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div>© RDM3DC — Adaptive π</div>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/RDM3DC/AdaptiveCAD">GitHub</a>
+        <a href="YOUR_KICKSTARTER_URL" class="text-teal-300">Kickstarter</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
