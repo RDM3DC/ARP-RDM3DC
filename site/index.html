@@ -62,8 +62,19 @@
         </div>
       </div>
       <div id="video" class="card rounded-2xl overflow-hidden p-2">
-        <video controls playsinline poster="./assets/hero_poster.jpg" class="rounded-xl w-full h-auto">
+        <video
+          id="hero-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="./assets/hero_poster.jpg"
+          class="rounded-xl w-full h-auto"
+          crossorigin="anonymous"
+          data-fallback="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        >
           <source src="./assets/hero.mp4" type="video/mp4">
+          Sorry, your browser cannot play the demo video. You can
+          <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">download it here</a>.
         </video>
       </div>
     </div>
@@ -99,5 +110,37 @@
     </div>
   </footer>
 </body>
+<script>
+  (function () {
+    const video = document.getElementById('hero-video');
+    if (!video) return;
+
+    const fallback = video.dataset.fallback;
+    const primarySource = video.querySelector('source');
+    let swapped = false;
+
+    function swapToFallback() {
+      if (swapped || !fallback) return;
+      swapped = true;
+      if (primarySource) {
+        primarySource.src = fallback;
+      }
+      video.load();
+    }
+
+    video.addEventListener('error', swapToFallback, { once: true });
+
+    if (primarySource) {
+      const request = new Request(primarySource.src, { method: 'HEAD' });
+      fetch(request)
+        .then((response) => {
+          if (!response.ok || Number(response.headers.get('content-length')) < 1024) {
+            swapToFallback();
+          }
+        })
+        .catch(() => swapToFallback());
+    }
+  })();
+</script>
 </html>
 <!-- version: 2025-09-17-1 -->

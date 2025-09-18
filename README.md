@@ -22,7 +22,7 @@ ARP-RDM3DC/
 
 ### Updating the hero video
 
-1. Replace `site/assets/hero.mp4` with the latest teaser (keep filename).
+1. Replace `site/assets/hero.mp4` with the latest teaser (keep filename). A small placeholder fallback clip is streamed from MDN if the local file is missing or too small, but publishing the real MP4 ensures the on-page player shows the correct content.
 2. (Optional) Host a poster image and update the `<video poster="…">` attribute in [`site/index.html`](site/index.html) if you do not want to use the default inline gradient placeholder.
 3. Remove the filenames from [`site/assets/.gitignore`](site/assets/.gitignore) if you want to commit the media, then commit the changes so the deploy workflow uploads them to Pages.
 
