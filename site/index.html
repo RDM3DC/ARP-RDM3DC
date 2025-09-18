@@ -130,7 +130,9 @@
 
     video.addEventListener('error', swapToFallback, { once: true });
 
-    if (primarySource) {
+    const isFileProtocol = window.location.protocol === 'file:';
+
+    if (primarySource && !isFileProtocol) {
       const request = new Request(primarySource.src, { method: 'HEAD' });
       fetch(request)
         .then((response) => {
@@ -146,7 +148,9 @@
             swapToFallback();
           }
         })
-        .catch(() => swapToFallback());
+        .catch(() => {
+          /* probing is best-effort; rely on the video element's error event */
+        });
     }
   })();
 </script>
