@@ -1,0 +1,192 @@
+[
+  {
+    "file": "README.md",
+    "slug": "readme-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/README.md"
+  },
+  {
+    "file": "ARP_reference.md",
+    "slug": "arp_reference-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/ARP_reference.md"
+  },
+  {
+    "file": "ARPsolution.md",
+    "slug": "arpsolution-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/ARPsolution.md"
+  },
+  {
+    "file": "equations.md",
+    "slug": "equations-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/equations.md"
+  },
+  {
+    "file": "LinearCurveAlgebra.md",
+    "slug": "linearcurvealgebra-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/LinearCurveAlgebra.md"
+  },
+  {
+    "file": "geometry .md",
+    "slug": "geometry-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/geometry%20.md"
+  },
+  {
+    "file": "distance.md",
+    "slug": "distance-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/distance.md"
+  },
+  {
+    "file": "energy.md",
+    "slug": "energy-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/energy.md"
+  },
+  {
+    "file": "gradient descent .md",
+    "slug": "gradient-descent-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/gradient%20descent%20.md"
+  },
+  {
+    "file": "pi geometry.md",
+    "slug": "pi-geometry-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/pi%20geometry.md"
+  },
+  {
+    "file": "formalizing adaptive pi.md",
+    "slug": "formalizing-adaptive-pi-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/formalizing%20adaptive%20pi.md"
+  },
+  {
+    "file": "a pi a.md",
+    "slug": "a-pi-a-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/a%20pi%20a.md"
+  },
+  {
+    "file": "pi x 2.md",
+    "slug": "pi-x-2-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/pi%20x%202.md"
+  },
+  {
+    "file": "pia42.md",
+    "slug": "pia42-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/pia42.md"
+  },
+  {
+    "file": "3dCMA.md",
+    "slug": "3dcma-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/3dCMA.md"
+  },
+  {
+    "file": "Curve Alphabet Encoder42.md",
+    "slug": "curve-alphabet-encoder42-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Curve%20Alphabet%20Encoder42.md"
+  },
+  {
+    "file": "Curve Alphabet Shape DNA: a\u2013z.md",
+    "slug": "curve-alphabet-shape-dna-a-z-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Curve%20Alphabet%20Shape%20DNA:%20a\u2013z.md"
+  },
+  {
+    "file": "curvemore.md",
+    "slug": "curvemore-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/curvemore.md"
+  },
+  {
+    "file": "more ca.md",
+    "slug": "more-ca-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/more%20ca.md"
+  },
+  {
+    "file": "LQG.md",
+    "slug": "lqg-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/LQG.md"
+  },
+  {
+    "file": "Penrose.md",
+    "slug": "penrose-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Penrose.md"
+  },
+  {
+    "file": "ext. Penrose.md",
+    "slug": "ext-penrose-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/ext.%20Penrose.md"
+  },
+  {
+    "file": "cmb.md",
+    "slug": "cmb-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/cmb.md"
+  },
+  {
+    "file": "Quantum state encoding,md",
+    "slug": "quantum-state-encodingmd",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Quantum%20state%20encoding,md"
+  },
+  {
+    "file": "more quantum52.md",
+    "slug": "more-quantum52-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/more%20quantum52.md"
+  },
+  {
+    "file": "US Survey.md",
+    "slug": "us-survey-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/US%20Survey.md"
+  },
+  {
+    "file": "Game-Changer for Spacecraft.md",
+    "slug": "game-changer-for-spacecraft-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Game-Changer%20for%20Spacecraft.md"
+  },
+  {
+    "file": "lasers44.md",
+    "slug": "lasers44-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/lasers44.md"
+  },
+  {
+    "file": "GPU RAM increaser.md",
+    "slug": "gpu-ram-increaser-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/GPU%20RAM%20increaser.md"
+  },
+  {
+    "file": "Energy Extraction Framework.md",
+    "slug": "energy-extraction-framework-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Energy%20Extraction%20Framework.md"
+  },
+  {
+    "file": "optimizer42.md",
+    "slug": "optimizer42-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/optimizer42.md"
+  },
+  {
+    "file": "3-SAT.md",
+    "slug": "3-sat-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/3-SAT.md"
+  },
+  {
+    "file": "newPrime.md",
+    "slug": "newprime-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/newPrime.md"
+  },
+  {
+    "file": "newConstant.md",
+    "slug": "newconstant-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/newConstant.md"
+  },
+  {
+    "file": "Matter.md",
+    "slug": "matter-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/Matter.md"
+  },
+  {
+    "file": "degrees of freedom.md",
+    "slug": "degrees-of-freedom-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/degrees%20of%20freedom.md"
+  },
+  {
+    "file": "gravity2point14.md",
+    "slug": "gravity2point14-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/gravity2point14.md"
+  },
+  {
+    "file": "more gravity math.md",
+    "slug": "more-gravity-math-md",
+    "source_blob": "https://github.com/RDM3DC/Adaptive-Resistance-Principle-ARP-/blob/main/more%20gravity%20math.md"
+  }
+]
