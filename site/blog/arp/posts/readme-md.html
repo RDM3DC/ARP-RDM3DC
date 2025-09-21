@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ARP — Overview</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; margin:2rem; max-width: 960px;}</style>
+</head>
+<body>
+  <h1>Adaptive Resistance Principle (ARP) — Overview</h1>
+  <p><strong>What is ARP?</strong> A simple adaptive law for conductance that increases with the magnitude of the driving signal and decays with a time constant. It behaves like a causal exponential tracker/low‑pass of |I| with closed‑form solutions.</p>
+  <h2>Core Equation</h2>
+  <pre><code>dG/dt = α·|I(t)| − μ·G(t),   α &gt; 0, μ &gt; 0, G ≥ 0</code></pre>
+  <h2>Key Properties</h2>
+  <ul>
+    <li>Closed‑form with exponential kernel; piecewise constant inputs converge toward <code>G∞ = (α/μ)·|I|</code>.</li>
+    <li>Discrete‑time Euler update: <code>G[k+1] = (1 − μΔt)·G[k] + αΔt·|I[k]|</code>.</li>
+    <li>Global exponential stability to <code>G∞</code> under constant input.</li>
+  </ul>
+  <p>For the full reference with derivations, see the ARP Reference post.</p>
+  <p><a href="../index.html">Back to ARP blog index</a></p>
+</body>
+</html>
